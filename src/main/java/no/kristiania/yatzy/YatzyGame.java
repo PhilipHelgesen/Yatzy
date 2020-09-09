@@ -3,6 +3,24 @@ package no.kristiania.yatzy;
 public class YatzyGame {
     public int score(YatzyCategory category, int[] dice) {
         int result = 0;
+        int[] frequencies = new int[7];
+        for (int die : dice) {
+            frequencies[die]++;
+        }
+        if (category == YatzyCategory.THREE_OF_A_KIND) {
+            for (int value = frequencies.length - 1; value >= 0; value--) {
+                if (frequencies[value] == 3) {
+                    return value * 3;
+                }
+            }
+        }
+        if (category == YatzyCategory.PAIR) {
+            for (int value = frequencies.length - 1; value >= 0; value--) {
+                if (frequencies[value] == 2) {
+                    return value * 2;
+                }
+            }
+        }
         for (int die : dice) {
             if (die == 1 && category == YatzyCategory.ONES) {
                 result += die;
@@ -17,21 +35,7 @@ public class YatzyGame {
             } else if (die == 6 && category == YatzyCategory.SIX) {
                 result += die;
             }
-
-
         }
-        if (category == YatzyCategory.PAIR) {
-            int[] frequencies = new int[7];
-            for (int die : dice) {
-                frequencies[die]++;
-            }
-            for (int value = frequencies.length - 1; value >= 0; value--) {
-                if (frequencies[value] == 2) {
-                    return value * 2;
-                }
-            }
-        }
-
         return result;
     }
 }
