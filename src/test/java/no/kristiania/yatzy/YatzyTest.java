@@ -19,8 +19,14 @@ public class YatzyTest {
 
     @Test
     void shouldScoreThree() {
-        assertEquals(3, new YatzyGame().score(YatzyCategory.TWOS, new int[]{3, 2, 2, 5, 2}));
-        assertEquals(9, new YatzyGame().score(YatzyCategory.TWOS, new int[]{3, 3, 3, 5, 2}));
+        assertEquals(3, new YatzyGame().score(YatzyCategory.THREE, new int[]{3, 2, 2, 5, 2}));
+        assertEquals(9, new YatzyGame().score(YatzyCategory.THREE, new int[]{3, 3, 3, 5, 2}));
+    }
+
+    @Test
+    void shouldScoreFour() {
+        assertEquals(4, new YatzyGame().score(YatzyCategory.FOUR, new int[]{4, 2, 2, 5, 2}));
+        assertEquals(12, new YatzyGame().score(YatzyCategory.FOUR, new int[]{4, 4, 4, 5, 2}));
     }
 
 }

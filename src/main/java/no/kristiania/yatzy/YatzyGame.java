@@ -8,6 +8,8 @@ public class YatzyGame {
                 result += die;
             }else if(die == 2 && category == YatzyCategory.TWOS){
                 result += die;
+            } else if(die == 3 && category == YatzyCategory.THREE){
+                result += die;
             }
         }
 
